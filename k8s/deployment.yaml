@@ -30,7 +30,7 @@ spec:
 
       containers:
         - name: web-app
-          image: docker.io/pawanpandit1/frontend:3877a4d
+          image: docker.io/pawanpandit1/frontend:78f38d8
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
