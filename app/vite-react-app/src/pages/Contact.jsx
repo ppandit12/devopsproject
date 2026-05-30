@@ -4,13 +4,13 @@ import { Mail, Send, Copy, Check, Info, Loader2 } from 'lucide-react';
 
 const GithubIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
   </svg>
 );
 
 const LinkedinIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
 
@@ -36,7 +36,7 @@ const Contact = () => {
     }
     if (!formData.subject.trim()) tempErrors.subject = 'Subject is required';
     if (!formData.message.trim()) tempErrors.message = 'Message is required';
-    
+
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -46,7 +46,7 @@ const Contact = () => {
     if (!validateForm()) return;
 
     setFormState('submitting');
-    
+
     // Simulate API delay
     setTimeout(() => {
       setFormState('success');
@@ -126,7 +126,7 @@ const Contact = () => {
         {/* Left Side: Contact Methods cards */}
         <div className="lg:col-span-5 space-y-4">
           {socialCards.map((card) => (
-            <div key={card.title} className="rounded-2xl glow-card p-5 flex items-center justify-between">
+            <div key={card.title} className="rounded-2xl glow-card p-5 flex items-center justify-between border border-slate-100 dark:border-slate-800/50 bg-white dark:bg-slate-900/50 shadow-md dark:shadow-none">
               <div className="flex items-center space-x-4">
                 <div className="p-3 rounded-xl border border-slate-200/50 dark:border-slate-800/50 bg-slate-50/50 dark:bg-slate-900/50">
                   {card.icon}
@@ -155,7 +155,7 @@ const Contact = () => {
 
         {/* Right Side: Contact Form panel */}
         <div className="lg:col-span-7">
-          <div className="rounded-2xl glow-card p-6 sm:p-8">
+          <div className="rounded-2xl glow-card p-6 sm:p-8 border border-slate-100 dark:border-slate-800/50 bg-white dark:bg-slate-900/50 shadow-md dark:shadow-none">
             <AnimatePresence mode="wait">
               {formState === 'success' ? (
                 <motion.div
@@ -168,13 +168,13 @@ const Contact = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20 text-emerald-500">
                     <Check className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-slate-850 dark:text-white">Message Transmitted!</h3>
-                  <p className="text-sm text-slate-555 dark:text-slate-400 max-w-sm leading-relaxed">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Message Transmitted!</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">
                     The API response code resolved with <strong className="text-emerald-500">200 OK</strong>. Your message was processed cleanly, and I will get back to you shortly.
                   </p>
                   <button
                     onClick={() => setFormState('idle')}
-                    className="mt-4 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs font-bold hover:bg-slate-100 transition-colors"
+                    className="mt-4 px-5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                   >
                     Send Another Message
                   </button>
@@ -196,9 +196,8 @@ const Contact = () => {
                         id="name"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${
-                          errors.name ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${errors.name ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                          }`}
                         placeholder="John Doe"
                       />
                       {errors.name && <p className="text-[10px] text-rose-500 font-bold">{errors.name}</p>}
@@ -214,9 +213,8 @@ const Contact = () => {
                         id="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${
-                          errors.email ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
-                        }`}
+                        className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${errors.email ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                          }`}
                         placeholder="john@example.com"
                       />
                       {errors.email && <p className="text-[10px] text-rose-500 font-bold">{errors.email}</p>}
@@ -233,9 +231,8 @@ const Contact = () => {
                       id="subject"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${
-                        errors.subject ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${errors.subject ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                        }`}
                       placeholder="Collaboration opportunity..."
                     />
                     {errors.subject && <p className="text-[10px] text-rose-500 font-bold">{errors.subject}</p>}
@@ -251,9 +248,8 @@ const Contact = () => {
                       rows="4"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all ${
-                        errors.message ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
-                      }`}
+                      className={`w-full px-4 py-3 rounded-xl border bg-slate-50/50 dark:bg-slate-950/40 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all resize-y ${errors.message ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                        }`}
                       placeholder="Hi, I wanted to discuss..."
                     />
                     {errors.message && <p className="text-[10px] text-rose-500 font-bold">{errors.message}</p>}

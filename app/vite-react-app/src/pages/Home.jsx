@@ -79,7 +79,7 @@ const Home = () => {
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl text-sm font-bold border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 hover:bg-slate-50 dark:hover:bg-slate-900 hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-xl text-sm font-bold text-slate-900 dark:text-white border border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 hover:bg-slate-50 dark:hover:bg-slate-900 hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               <span>Get In Touch</span>
             </Link>
@@ -121,8 +121,8 @@ const Home = () => {
                 <button
                   onClick={() => setActiveTab('fullstack')}
                   className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${activeTab === 'fullstack'
-                      ? 'bg-white dark:bg-slate-700 text-indigo-500 dark:text-white shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                    ? 'bg-white dark:bg-slate-700 text-indigo-500 dark:text-white shadow-sm'
+                    : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                     }`}
                 >
                   Full Stack
@@ -130,8 +130,8 @@ const Home = () => {
                 <button
                   onClick={() => setActiveTab('devops')}
                   className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${activeTab === 'devops'
-                      ? 'bg-white dark:bg-slate-700 text-indigo-500 dark:text-white shadow-sm'
-                      : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                    ? 'bg-white dark:bg-slate-700 text-indigo-500 dark:text-white shadow-sm'
+                    : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
                     }`}
                 >
                   DevOps

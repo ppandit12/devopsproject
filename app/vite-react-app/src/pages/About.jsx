@@ -57,7 +57,7 @@ const About = () => {
     <div className="py-6 space-y-12">
       {/* Intro Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
-        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">About Me</h2>
+        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">About Me</h2>
         <div className="w-12 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-full mx-auto" />
         <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
           The story behind the cloud architecture, server metrics, and interactive software designs.
