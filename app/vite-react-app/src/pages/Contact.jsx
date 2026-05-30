@@ -21,7 +21,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('developer@example.com');
+    navigator.clipboard.writeText('pawanpandit9834@gmail.com');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -57,7 +57,7 @@ const Contact = () => {
   const socialCards = [
     {
       title: 'Email Address',
-      value: 'developer@example.com',
+      value: 'pawanpandit9834@gmail.com',
       icon: <Mail className="w-5 h-5 text-indigo-500" />,
       action: (
         <button
@@ -81,11 +81,11 @@ const Contact = () => {
     },
     {
       title: 'LinkedIn',
-      value: 'linkedin.com/in/alexcarter',
+      value: 'pawan-kuamar-p-595676176',
       icon: <LinkedinIcon className="w-5 h-5 text-purple-500" />,
       action: (
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/pawan-kuamar-p-595676176/"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1 text-xs font-bold text-purple-500 hover:text-purple-600 transition-colors p-1"
@@ -96,11 +96,11 @@ const Contact = () => {
     },
     {
       title: 'GitHub Profile',
-      value: 'github.com/alexcarter-dev',
+      value: 'github.com/ppandit12',
       icon: <GithubIcon className="w-5 h-5 text-cyan-500" />,
       action: (
         <a
-          href="https://github.com"
+          href="https://github.com/ppandit12"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center space-x-1 text-xs font-bold text-cyan-500 hover:text-cyan-600 transition-colors p-1"
