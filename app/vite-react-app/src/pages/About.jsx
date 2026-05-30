@@ -67,8 +67,8 @@ const About = () => {
       {/* Grid Layout Bio / Highlight Cards */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
         {/* Left Side: Text Bio Card */}
-        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl glow-card p-6 sm:p-8 space-y-6">
-          <div className="space-y-4 text-slate-650 dark:text-slate-350 leading-relaxed text-sm sm:text-base">
+        <div className="lg:col-span-7 flex flex-col justify-between rounded-2xl glow-card bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-md dark:shadow-none p-6 sm:p-8 space-y-6">
+          <div className="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
             <div className="flex items-center space-x-2 text-indigo-500">
               <Sparkles className="w-5 h-5 animate-pulse" />
               <span className="font-bold text-sm uppercase tracking-wider">My Journey</span>
@@ -95,12 +95,12 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: idx * 0.1 }}
-              className="flex flex-col justify-center items-center p-6 rounded-2xl glow-card text-center"
+              className="flex flex-col justify-center items-center p-6 rounded-2xl glow-card bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-md dark:shadow-none text-center"
             >
               <span className="text-3xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-cyan-500">
                 {stat.value}
               </span>
-              <span className="text-xs font-medium text-slate-550 dark:text-slate-400 mt-2">
+              <span className="text-xs font-medium text-slate-600 dark:text-slate-400 mt-2">
                 {stat.label}
               </span>
             </motion.div>
@@ -115,22 +115,20 @@ const About = () => {
           <div className="inline-flex rounded-xl bg-slate-100 dark:bg-slate-900 p-1 border border-slate-200/50 dark:border-slate-800">
             <button
               onClick={() => setActiveTab('experience')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-all ${
-                activeTab === 'experience'
-                  ? 'bg-white dark:bg-slate-800 text-indigo-500 dark:text-white shadow-md'
-                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-              }`}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'experience'
+                ? 'bg-white dark:bg-slate-800 text-indigo-500 dark:text-white shadow-md'
+                : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
             >
               <Briefcase className="w-4 h-4" />
               <span>Experience</span>
             </button>
             <button
               onClick={() => setActiveTab('education')}
-              className={`flex items-center space-x-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-all ${
-                activeTab === 'education'
-                  ? 'bg-white dark:bg-slate-800 text-indigo-500 dark:text-white shadow-md'
-                  : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
-              }`}
+              className={`flex items-center space-x-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'education'
+                ? 'bg-white dark:bg-slate-800 text-indigo-500 dark:text-white shadow-md'
+                : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                }`}
             >
               <GraduationCap className="w-4 h-4" />
               <span>Education</span>
@@ -158,25 +156,25 @@ const About = () => {
                     </div>
 
                     {/* Content Card */}
-                    <div className="rounded-2xl glow-card p-5 space-y-3">
+                    <div className="rounded-2xl glow-card bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-md dark:shadow-none p-5 space-y-3">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                        <h3 className="text-base sm:text-lg font-bold text-slate-850 dark:text-white">
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                           {exp.role}
                         </h3>
-                        <div className="inline-flex items-center space-x-1.5 text-xs text-indigo-500 dark:text-indigo-400 font-bold bg-indigo-500/5 dark:bg-indigo-500/10 px-2.5 py-1 rounded-full w-fit">
+                        <div className="inline-flex items-center space-x-1.5 text-xs text-indigo-600 dark:text-indigo-400 font-bold bg-indigo-50 dark:bg-indigo-500/10 px-2.5 py-1 rounded-full w-fit">
                           <Calendar className="w-3.5 h-3.5" />
                           <span>{exp.period}</span>
                         </div>
                       </div>
 
                       <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500">
-                        <Building className="w-3.5 h-3.5 text-cyan-400" />
+                        <Building className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                         <span>{exp.company}</span>
                         <span>•</span>
                         <span>{exp.location}</span>
                       </div>
 
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                         {exp.description}
                       </p>
                     </div>
@@ -200,25 +198,25 @@ const About = () => {
                     </div>
 
                     {/* Content Card */}
-                    <div className="rounded-2xl glow-card p-5 space-y-3">
+                    <div className="rounded-2xl glow-card bg-white dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800/50 shadow-md dark:shadow-none p-5 space-y-3">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                        <h3 className="text-base sm:text-lg font-bold text-slate-850 dark:text-white">
+                        <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
                           {edu.degree}
                         </h3>
-                        <div className="inline-flex items-center space-x-1.5 text-xs text-indigo-500 dark:text-indigo-400 font-bold bg-indigo-500/5 dark:bg-indigo-500/10 px-2.5 py-1 rounded-full w-fit">
+                        <div className="inline-flex items-center space-x-1.5 text-xs text-indigo-600 dark:text-indigo-400 font-bold bg-indigo-50 dark:bg-indigo-500/10 px-2.5 py-1 rounded-full w-fit">
                           <Calendar className="w-3.5 h-3.5" />
                           <span>{edu.period}</span>
                         </div>
                       </div>
 
                       <div className="flex items-center space-x-2 text-xs font-semibold text-slate-500">
-                        <Building className="w-3.5 h-3.5 text-cyan-400" />
+                        <Building className="w-3.5 h-3.5 text-cyan-500 dark:text-cyan-400" />
                         <span>{edu.institution}</span>
                         <span>•</span>
                         <span>{edu.location}</span>
                       </div>
 
-                      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                      <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                         {edu.description}
                       </p>
                     </div>
