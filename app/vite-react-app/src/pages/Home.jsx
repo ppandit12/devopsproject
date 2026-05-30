@@ -5,18 +5,18 @@ import { ArrowRight, Terminal, Database, Server, Cpu, Cloud, CheckCircle, Extern
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState('fullstack'); // 'fullstack' or 'devops'
-  
+
   // Custom typing animation hook variables
   const titles = ["Full Stack Developer", "DevOps Engineer", "Cloud Architect"];
   const [titleIndex, setTitleIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
-  
+
   useEffect(() => {
     let timer;
     const fullText = titles[titleIndex];
     const typingSpeed = isDeleting ? 30 : 60;
-    
+
     if (!isDeleting && currentText === fullText) {
       // Wait before starting to delete
       timer = setTimeout(() => setIsDeleting(true), 1500);
@@ -26,13 +26,13 @@ const Home = () => {
     } else {
       timer = setTimeout(() => {
         setCurrentText(
-          isDeleting 
+          isDeleting
             ? fullText.substring(0, currentText.length - 1)
             : fullText.substring(0, currentText.length + 1)
         );
       }, typingSpeed);
     }
-    
+
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, titleIndex]);
 
@@ -42,7 +42,7 @@ const Home = () => {
         {/* Left Column - Intro */}
         <div className="lg:col-span-7 flex flex-col space-y-6 text-left">
           {/* Status Badge */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="self-start inline-flex items-center space-x-2 px-3 py-1.5 rounded-full glass-panel text-slate-800 dark:text-slate-200 text-xs font-semibold"
@@ -57,7 +57,7 @@ const Home = () => {
           {/* Big Header */}
           <div className="space-y-3">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight">
-              <span className="block text-slate-850 dark:text-white">Hi, I'm Alex Carter</span>
+              <span className="block text-slate-850 dark:text-white">Hi, I'm Pawan Kumar Pandit</span>
               <span className="block h-[50px] sm:h-[60px] md:h-[70px] text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 typing-cursor">
                 {currentText}
               </span>
@@ -104,7 +104,7 @@ const Home = () => {
 
         {/* Right Column - Premium Interactive Graphic Console */}
         <div className="lg:col-span-5 w-full flex justify-center items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -120,21 +120,19 @@ const Home = () => {
               <div className="flex space-x-1 rounded-lg bg-slate-200/50 dark:bg-slate-800/80 p-0.5 border border-slate-350 dark:border-slate-850">
                 <button
                   onClick={() => setActiveTab('fullstack')}
-                  className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${
-                    activeTab === 'fullstack'
+                  className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${activeTab === 'fullstack'
                       ? 'bg-white dark:bg-slate-700 text-indigo-500 dark:text-white shadow-sm'
                       : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
-                  }`}
+                    }`}
                 >
                   Full Stack
                 </button>
                 <button
                   onClick={() => setActiveTab('devops')}
-                  className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${
-                    activeTab === 'devops'
+                  className={`px-3 py-1 text-xs font-bold rounded-md transition-all ${activeTab === 'devops'
                       ? 'bg-white dark:bg-slate-700 text-indigo-500 dark:text-white shadow-sm'
                       : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
-                  }`}
+                    }`}
                 >
                   DevOps
                 </button>
