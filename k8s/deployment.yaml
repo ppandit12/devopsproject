@@ -30,7 +30,7 @@ spec:
 
       containers:
         - name: web-app
-          image: docker.io/nginxinc/nginx-unprivileged:alpine # Updated dynamically by GitOps CI pipeline
+          image: docker.io/pawanpandit1/frontend:5cdec9e
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
