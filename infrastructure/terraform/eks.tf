@@ -38,7 +38,7 @@ resource "aws_eks_node_group" "nodes" {
     max_unavailable = 1
   }
 
-  ami_type       = "AL2_x86_64" # Amazon Linux 2 EKS Optimized AMI
+  ami_type       = "AL2023_x86_64_STANDARD" # Amazon Linux 2023 EKS Optimized AMI
   instance_types = var.node_instance_types
   disk_size      = 20 # 20GB root volume size
 
