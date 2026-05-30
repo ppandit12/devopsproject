@@ -27,3 +27,9 @@ output "eks_cluster_certificate_authority" {
   description = "CA cert required to communicate with the cluster"
   value       = aws_eks_cluster.eks.certificate_authority[0].data
 }
+
+output "alb_controller_role_arn" {
+  description = "ARN of the IAM role for the AWS Load Balancer Controller"
+  value       = aws_iam_role.alb_controller.arn
+}
+

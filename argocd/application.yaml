@@ -10,7 +10,7 @@ spec:
   
   # Git Source configurations (ArgoCD pulls manifests here)
   source:
-    repoURL: 'https://github.com/placeholder-github-username/devopsProject.git' # Replace with your target git repository URL
+    repoURL: 'https://github.com/ppandit12/devopsproject.git' # Replace with your target git repository URL
     targetRevision: HEAD
     path: k8s
     
