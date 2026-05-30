@@ -1,0 +1,98 @@
+name: CI/CD Production Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  ci-pipeline:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Checkout codebase
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHA_PAT }} # Uses Personal Access Token to enable pushing updates back
+          
+      # 2. Setup Node environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: app/vite-react-app/package-lock.json
+
+      # 3. Install NPM dependencies
+      - name: Install Dependencies
+        run: |
+          cd app/vite-react-app
+          npm ci
+
+      # 4. Check linting and rules compliance
+      - name: Code Linting
+        run: |
+          cd app/vite-react-app
+          npm run lint -- --max-warnings=0
+
+      # 5. Build React Static production assets
+      - name: Compile Application Build
+        run: |
+          cd app/vite-react-app
+          npm run build
+
+      # 6. Docker Build setup and Multi-arch configurations
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 7. Log in to Docker Hub registry
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      # 8. Create dynamic tags based on Commit SHA and release versions
+      - name: Extract Metadata
+        id: meta
+        run: |
+          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+        
+      # 9. Build and Push Docker container
+      - name: Build and Push Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./app/vite-react-app
+          file: ./app/vite-react-app/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/frontend:${{ steps.meta.outputs.sha_short }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # 10. Declarative GitOps deployment tag updates
+      - name: Update Kubernetes Manifest Image Tag
+        run: |
+          SHA_SHORT="${{ steps.meta.outputs.sha_short }}"
+          IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/frontend:${SHA_SHORT}"
+          
+          # Use sed to dynamically update the deployment image key with the commit SHA
+          sed -i "s|image: docker.io/.*|image: docker.io/${IMAGE}|g" k8s/deployment.yaml
+          
+      # 11. Commit updated tag back to GitHub (triggers ArgoCD automated sync)
+      - name: Commit and Push GitOps Tag Update
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add k8s/deployment.yaml
+          git commit -m "chore(gitops): update production deployment container image tag to ${{ steps.meta.outputs.sha_short }} [skip ci]"
+          git push origin main

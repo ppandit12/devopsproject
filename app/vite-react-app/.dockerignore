@@ -1,0 +1,10 @@
+node_modules
+dist
+.git
+.gitignore
+.github
+Dockerfile
+nginx.conf
+npm-debug.log
+.DS_Store
+*.md

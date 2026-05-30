@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: frontend-portfolio
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  
+  # Git Source configurations (ArgoCD pulls manifests here)
+  source:
+    repoURL: 'https://github.com/placeholder-github-username/devopsProject.git' # Replace with your target git repository URL
+    targetRevision: HEAD
+    path: k8s
+    
+  # Destination details (Installs inside production EKS namespace)
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: production
+    
+  # Declarative GitOps Auto-Sync policy
+  syncPolicy:
+    automated:
+      prune: true      # Automatically deletes resources no longer present in Git
+      selfHeal: true   # Automatically overwrites configuration drifts in cluster
+    syncOptions:
+      - CreateNamespace=true # Auto-creates namespace if not present
