@@ -4,7 +4,6 @@ dist
 .gitignore
 .github
 Dockerfile
-nginx.conf
 npm-debug.log
 .DS_Store
 *.md
