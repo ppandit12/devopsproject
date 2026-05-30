@@ -10,9 +10,6 @@ metadata:
     
     # Listen only on standard HTTP port 80 (avoids ACM SSL requirements)
     alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
-    
-    # Core ingress scaling limits
-    alb.ingress.kubernetes.io/load-balancer-attributes: idle_timeout.timeout=60
 spec:
   ingressClassName: alb # Standard ingress class definition
   rules:
