@@ -8,8 +8,14 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
     
-    # Listen only on standard HTTP port 80 (avoids ACM SSL requirements)
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    # Enable ports 80 (HTTP) and 443 (HTTPS)
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    
+    # Reference ACM Certificate
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-west-2:626635412838:certificate/6da74523-4c83-4f34-92c4-1d1151c1fdb8
+    
+    # Automatically redirect HTTP to HTTPS
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
 spec:
   ingressClassName: alb # Standard ingress class definition
   rules:
